@@ -16,7 +16,7 @@ inquirer
     "name": "URL"
 }])
 .then((answers) => {
-    const url = answers.URL; // grabs the URL from the answers object
+    const url = answers.URL; // grabs the URL from what the user types in
     var qr_png = qr.image(url); // create the qr code and store in variable
     qr_png.pipe(fs.createWriteStream("linkedIn.png")); // finalize the qr code
 
@@ -27,10 +27,8 @@ inquirer
 })
 .catch((error) => {
     if(error.TtyError){
-
-    } else {
-
-    }
+    console.log("error");
+    } 
 });
 
 
